@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div class="d-flex justify-content-start">
+    <span class="me-2" *ngIf="totalCards > 0">Cards: {{totalCards}}</span>
+    <span *ngIf="similarCardsLength > 0">Similar: {{similarCardsLength}}</span>
+  </div>
+  <div>
+    <button class="btn btn-primary me-3" (click)="onGetSimilarCard()" [disabled]="totalCards === 0"><i class="bi-files"></i> Similar Card</button>
+    <button class="btn btn-primary" (click)="onGetRandomCard()" [disabled]="totalCards === 0"><i class="bi-dice-5-fill"></i> Random Card</button>
+  </div>
+</div>
