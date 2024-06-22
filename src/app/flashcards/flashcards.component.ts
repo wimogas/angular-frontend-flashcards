@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Card} from "./models/Card";
 import {FlashcardsService} from "./flashcards.service";
-import {concatMap, Subscription} from "rxjs";
+import {concatMap, delay, finalize, Subscription, tap} from "rxjs";
 
 @Component({
   selector: 'app-flashcards',
@@ -12,27 +12,32 @@ export class FlashcardsComponent implements OnInit, OnDestroy {
   card: Card | null = null;
   totalCards = 0
   similarCardsLength = 0
+  loading = false;
 
   subscription: Subscription = new Subscription();
 
   constructor(private flashCardsService: FlashcardsService) {}
 
   ngOnInit(): void {
-    this.subscription = this.flashCardsService.fetchFlashcards().pipe(
-      concatMap(() => this.flashCardsService.getCard())
+    this.loading = true
+    this.flashCardsService.fetchFlashcards().pipe(
+      concatMap(() => this.flashCardsService.getCard()),
+      tap(() => {
+        this.totalCards = this.flashCardsService.totalCards
+        this.similarCardsLength = this.flashCardsService.similarCardsLength
+      })
     ).subscribe(
         {
           next: card => {
-            this.card = card;
-            this.totalCards = this.flashCardsService.totalCards
-            this.similarCardsLength = this.flashCardsService.similarCardsLength
+            this.card = card
+            this.loading = false
+          },
+          error: error => {
+            console.log(error)
+            this.loading = false
           }
         }
       )
-  }
-
-  onResetCards(){
-    this.flashCardsService.restartCards()
   }
 
   ngOnDestroy() {

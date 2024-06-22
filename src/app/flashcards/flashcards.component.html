@@ -1,22 +1,11 @@
 <div class="container">
-  <app-header
-    [totalCards]="totalCards"
-    [similarCardsLength]="similarCardsLength">
-  </app-header>
-  <ng-container *ngIf="totalCards > 0 && card">
-    <div class="card p-3">
-      <h2 class="border-bottom">{{card.title}}</h2>
-      <p class="mt-2">{{card.description}}</p>
-      <div class="d-flex mb-2">
-        <span class="badge bg-secondary me-2" *ngFor="let tag of card.tags">{{tag}}</span>
-      </div>
-      <div class="ff-markdown" *ngIf="card.code">
-        <markdown [data]="card.code | language : 'typescript'"></markdown>
-      </div>
-    </div>
-  </ng-container>
-  <ng-container *ngIf="totalCards === 0">
-    <p>No Cards Left to learn.</p>
-    <button class="btn btn-primary" (click)="onResetCards()">Restart</button>
+  <app-spinner *ngIf="loading"></app-spinner>
+  <ng-container *ngIf="!loading">
+    <app-header
+      [totalCards]="totalCards"
+      [similarCardsLength]="similarCardsLength">
+    </app-header>
+    <app-card *ngIf="totalCards > 0 && card" [card]="card"></app-card>
+    <app-empty-state *ngIf="totalCards === 0"></app-empty-state>
   </ng-container>
 </div>

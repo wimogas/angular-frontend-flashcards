@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Card} from "./models/Card";
-import {BehaviorSubject, tap} from "rxjs";
+import {BehaviorSubject, delay, tap} from "rxjs";
 import {environment} from "../../environments/environment";
 
 @Injectable({
@@ -20,7 +20,7 @@ export class FlashcardsService {
   cardSub = new BehaviorSubject<Card|null>(null);
   card = this.cardSub.asObservable()
 
-  apiUrl = `${environment.firebaseApi}flashcards.json`
+  apiUrl = `${environment.firebaseDbUrl}flashcards.json`
 
   constructor(private http: HttpClient) {}
 
@@ -33,7 +33,8 @@ export class FlashcardsService {
           this.totalCards = this.viewedCards.length
           this.cardSub.next(this.generateRandomCard())
         }
-      )
+      ),
+      delay(500)
     )
   }
 

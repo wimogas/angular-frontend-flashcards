@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FlashcardsService} from "../../flashcards.service";
 
 @Component({
   selector: 'app-empty-state',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./empty-state.component.scss']
 })
 export class EmptyStateComponent {
+
+  constructor(private flashCardsService: FlashcardsService) {}
+
+  onResetCards(){
+    this.flashCardsService.restartCards()
+  }
 
 }

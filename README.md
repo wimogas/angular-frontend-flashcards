@@ -1,27 +1,75 @@
-# FrontendFlashcards
+# Frontend Flashcards
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+This project is a Flashcard application developed with Angular. It provides an effective way for learners to internalize concepts or learn new information.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+### Get Random Card
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This feature allows users to get a random flashcard from the deck. This can be beneficial for users looking for a quick review of their knowledge or trying to study in an unpredictable order, enhancing their recall ability.
 
-## Build
+### Get Similar Card
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The Get Similar Card feature provides users with flashcards that are similar to the one they are currently reviewing. This functionality can aid in the reinforcement of related concepts by presenting similar flashcards consecutively, providing a deeper understanding and enhancing the learning process.
 
-## Running unit tests
+### Environment File Generator
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The environment file generator is a script that is used to generate environment configuration files for the Angular application. The configuration includes various environment variables such as Firebase configuration and production flag.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Getting Started
 
-## Further help
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Prerequisites
+
+Things you need to install the software:
+
+- Node.js and npm
+- Angular v16.0.0
+- TypeScript v5.1.2
+
+### Install
+
+A step by step explanation of how to get a development environment running:
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm start
+```
+
+## Running the tests
+
+How to run the automated tests for this system
+
+```bash
+npm test
+```
+
+## Deployment
+
+How to deploy this on a live system.
+
+```bash
+npm build
+```
+
+## Built With
+
+- [Angular](https://angular.io/) - The web framework used
+- [npm](https://www.npmjs.com/) - Dependency Management
+- [TypeScript](https://www.typescriptlang.org/) - Used for static typing JavaScript codes.
+
+## Authors
+
+Guillem Moya
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

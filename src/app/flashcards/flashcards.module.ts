@@ -7,7 +7,7 @@ import {MarkdownModule} from "ngx-markdown";
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
-
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { EmptyStateComponent } from './components/empty-state/empty-state.compon
   imports: [
     CommonModule,
     FlashcardsRoutingModule,
-    MarkdownModule.forChild()
+    MarkdownModule.forChild(),
+    SharedModule,
   ]
 })
 export class FlashcardsModule { }

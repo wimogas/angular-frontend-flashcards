@@ -7,6 +7,8 @@ import {provideHttpClient} from "@angular/common/http";
 import {MarkdownModule} from "ngx-markdown";
 import {FlashcardsRoutingModule} from "./flashcards/flashcards-routing.module";
 import {FlashcardsModule} from "./flashcards/flashcards.module";
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import {FlashcardsModule} from "./flashcards/flashcards.module";
     FlashcardsRoutingModule,
     AppRoutingModule,
     MarkdownModule.forRoot(),
+    SharedModule,
     FlashcardsModule
   ],
   providers: [
